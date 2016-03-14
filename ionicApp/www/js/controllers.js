@@ -5,11 +5,11 @@ angular.module('ionicApp.controllers', [])
 	$scope.task = {};
 
 	$ionicModal.fromTemplateUrl('new-task-modal.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.newTaskModal = modal;
-    });
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function (modal) {
+		$scope.newTaskModal = modal;
+	});
 
 	$scope.getTasks = function(){
 		if (localStorageService.get('taskData')) {
@@ -56,18 +56,19 @@ angular.module('ionicApp.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-	Chats.remove(chat);
-  };
+	$scope.chats = Chats.all();
+	$scope.remove = function(chat) {
+		Chats.remove(chat);
+	};
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+	$scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-	enableFriends: true
-  };
+	$scope.settings = {
+		enableFriends: true
+	};
 });
