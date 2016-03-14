@@ -21,7 +21,7 @@
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
 </head>
-<body ng-app="ionicApp" ng-controller="ionicAppCtrl" ng-init="getTasks()">
+<body ng-app="ionicApp" ng-controller="ionicAppCtrl">
 	<!--	  The nav bar that will be updated as we navigate between views.	-->
 	<ion-nav-bar class="bar-dark">
 		<ion-nav-buttons side="right">
@@ -31,10 +31,21 @@
 			</button>
 		</ion-nav-buttons>
 	</ion-nav-bar>
+
+<!-- <tabs tabs-style="tabs-icon-top" tabs-type="tabs-light">
+
+	<tab title="Events" icon="ion-navicon" href="#/tab/events">
+		<nav-view name="events-tab"></nav-view>
+	</tab>
+
+	<tab title="Friends" icon="tictic-friends" href="#/tab/friends">
+		<nav-view name="friends-tab"></nav-view>
+	</tab>
+</tabs> -->
 	<!--	  The views will be rendered in the <ion-nav-view> directive below	-->
 	<ion-nav-view></ion-nav-view>
 
-<script id="new-task-modal.html" type="text/ng-template">
+	<script id="new-task-modal.html" type="text/ng-template">
 	<ion-modal-view>
 		<ion-header-bar class="bar-dark">
 			<h1 class="title">Create a new Task</h1>

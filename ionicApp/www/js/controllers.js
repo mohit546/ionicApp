@@ -1,14 +1,18 @@
 angular.module('ionicApp.controllers', [])
 
 .controller('ionicAppCtrl', function($scope, $ionicModal, localStorageService){
-	$scope.tasks = [];
-	$scope.task = {};
 
+$scope.tasks = [];
+	$scope.task = {};
 	$ionicModal.fromTemplateUrl('new-task-modal.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function (modal) {
 		$scope.newTaskModal = modal;
+	});
+
+	$scope.$on('$ionicView.enter', function(e) {
+		$scope.getTasks();
 	});
 
 	$scope.getTasks = function(){
@@ -18,6 +22,7 @@ angular.module('ionicApp.controllers', [])
 			$scope.tasks = [];
 		}
 	};
+
 	$scope.createTask = function(){
 		$scope.tasks.push($scope.task);
 		localStorageService.set('taskData', $scope.tasks);
@@ -43,9 +48,13 @@ angular.module('ionicApp.controllers', [])
 	$scope.closeTaskModal = function () {
 		$scope.newTaskModal.hide();
 	};
+
 })
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $ionicModal, localStorageService) {
+
+
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
